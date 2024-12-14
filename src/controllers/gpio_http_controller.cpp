@@ -14,9 +14,9 @@ void handle(WiFiClient client, String url_slices[]) {
   Serial.println(value);
 
   if (action == "button") {
-    digitalWrite(pin, HIGH);
-    delay(500);
     digitalWrite(pin, LOW);
+    delay(100);
+    digitalWrite(pin, HIGH);
     Response::ok(client,
                  "{\"pin\": " + String(pin) + ", \"value\": \"pressed\"}");
     return;
